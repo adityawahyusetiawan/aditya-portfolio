@@ -7,44 +7,60 @@ import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 const experiences = [
   {
     id: 1,
+    company: "IPESG",
+    role: "Research Assistant",
+    period: "Oct 2023 - Dec 2025",
+    location: "Malang, Indonesia",
+    responsibilities: [
+      "Supported applied research activities in power systems, renewable energy, and industrial automation.",
+      "Contributed to engineering analysis, prototype development, and technical documentation.",
+      "Assisted with embedded-system and IoT-based monitoring prototypes for applied engineering projects.",
+      "Collaborated with academic teams to prepare research outputs and competition materials.",
+      "Supported testing and refinement of practical engineering solutions.",
+    ],
+    imageLabel: "research-diagram",
+  },
+  {
+    id: 2,
     company: "PT. Energi Terbarukan Internasional",
     role: "Solar PV EPC Intern",
     period: "Feb 2025 - Jun 2025",
     location: "Surabaya, Indonesia",
     responsibilities: [
-      "Involved in Engineering, Procurement, and Construction (EPC) activities for solar PV projects.",
-      "Assisted in planning and execution of solar panel installations for commercial-scale systems.",
+      "Supported engineering, procurement, and construction activities for solar PV projects.",
+      "Assisted with site surveys, installation planning, and PV-system component verification.",
       "Supported coordination between engineering design, field installation, and project documentation.",
-      "Participated in technical inspections and verification of installed PV system components.",
+      "Participated in technical inspections of installed PV-system components.",
     ],
-    imageLabel: "solar-pv-epc-intern", // Nama file: solar-pv-epc-intern.png
-  },
-  {
-    id: 2,
-    company: "PT. King Manufacture",
-    role: "Manufacturing & Automation Intern",
-    period: "Jul 2020 - Dec 2020",
-    location: "Surakarta, Indonesia",
-    responsibilities: [
-      "Assisted in manufacturing processes focused on industrial automation and precision component production.",
-      "Participated in production of precision parts for automotive and heavy industry sectors.",
-      "Gained exposure to industrial manufacturing workflows, quality control, and technical documentation.",
-    ],
-    imageLabel: "manufacturing-automation-intern", // Nama file: manufacturing-automation-intern.png
+    imageLabel: "solar-pv-epc-intern",
   },
   {
     id: 3,
+    company: "PT. King Manufacture",
+    role: "Manufacturing & Automation Intern",
+    period: "Oct 2021 - Mar 2022",
+    location: "Sukoharjo, Indonesia",
+    responsibilities: [
+      "Assisted CNC machining and precision-component manufacturing activities.",
+      "Supported electrical wiring and basic automation-panel assembly work.",
+      "Observed safety-system implementation and production quality-control practices.",
+      "Gained practical experience with industrial manufacturing workflows and technical documentation.",
+    ],
+    imageLabel: "manufacturing-automation-intern",
+  },
+  {
+    id: 4,
     company: "PT. Alfan Mechatronics Innovation",
     role: "Mechatronics & Industrial Automation Intern",
     period: "Jul 2020 - Dec 2020",
-    location: "malang, Indonesia",
+    location: "Malang, Indonesia",
     responsibilities: [
-      "Assisted in industrial automation and mechanical–electrical construction (MEP) projects.",
-      "Supported design and installation of renewable energy systems including solar PV and public street lighting (PJU).",
-      "Participated in development of mechatronics-based systems such as educational trainers and automation modules.",
-      "Collaborated with engineers and academic partners in vocational and applied engineering projects.",
+      "Supported solar PV and public-street-lighting project activities.",
+      "Assisted the development of mechatronics and industrial-automation training equipment.",
+      "Contributed to trainer preparation and applied learning activities with P4TK Batu.",
+      "Gained practical experience in mechanical-electrical assembly and project documentation.",
     ],
-    imageLabel: "mechatronics-automation-intern", // Nama file: mechatronics-automation-intern.png
+    imageLabel: "mechatronics-automation-intern",
   },
 ];
 

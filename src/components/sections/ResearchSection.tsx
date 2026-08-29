@@ -4,14 +4,17 @@ import { useRef } from "react";
 import { BookOpen, FileText, Award, ExternalLink } from "lucide-react";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
-const publications = [
+const researchProjects = [
   {
-    type: "Research",
+    type: "Research Project",
     title: "E-MOS: IoT-Based Environmental Monitoring System Integrated Smartphone Application to Increase Leaf Vegetable Production",
-    journal: "Arau International Creativity Expo (ACE)",
+    journal: "ARAU International Creativity Expo (ACE)",
     year: "2023",
-    url: "https://www.kompasiana.com/adityawahyusetiawan1135/6964a70334777c377a0bfdf2/inovasi-berbasis-internet-of-things-karya-mahasiswa-um-harumkan-nama-bangsa-di-tingkat-internasional?page=1&page_images=1" 
+    url: "https://www.kompasiana.com/adityawahyusetiawan1135/6964a70334777c377a0bfdf2/inovasi-berbasis-internet-of-things-karya-mahasiswa-um-harumkan-nama-bangsa-di-tingkat-internasional?page=1&page_images=1",
   },
+];
+
+const publications = [
   {
     type: "Journal",
     title: "Rancangan Kontrol Daya Resistif Berdasarkan Mikrokontroler Dengan Triac",
@@ -29,11 +32,12 @@ const publications = [
 ];
 
 const researchAreas = [
-  "Renewable Energy Systems Integration",
-  "Power System Protection & Automation",
+  "Power Systems",
+  "Renewable Energy",
+  "Industrial Automation",
+  "Power Electronics",
   "Smart Grid Technologies",
-  "Energy Efficiency Optimization",
-  "IoT Applications in Power Systems",
+  "IoT-Based Monitoring Systems",
 ];
 
 export function ResearchSection() {
@@ -65,10 +69,10 @@ export function ResearchSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Research & Publications
+            Research Projects & Publications
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Design and implementation of a microcontroller-based power monitoring and control system for industrial and commercial applications.
+            Applied research spanning power systems, renewable energy, industrial automation, and IoT-based monitoring.
           </p>
           <div className="w-20 h-1 bg-accent mx-auto rounded-full mt-4" />
         </motion.div>
@@ -81,12 +85,9 @@ export function ResearchSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-6"
           >
-            <h3 className="text-xl font-semibold text-foreground mb-6">
-              Research & Publications
-            </h3>
-
-            <div className="space-y-4 max-h-[400px] lg:max-h-[500px] overflow-y-auto pr-2 scrollbar-themed">
-              {publications.map((pub, index) => {
+            <h3 className="text-xl font-semibold text-foreground">Research Projects</h3>
+            <div className="space-y-4">
+              {researchProjects.map((pub, index) => {
                 const TypeIcon = getTypeIcon(pub.type);
                 return (
                   <motion.div
@@ -115,6 +116,18 @@ export function ResearchSection() {
                       </div>
                       <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                     </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            <h3 className="text-xl font-semibold text-foreground pt-2">Publications</h3>
+            <div className="space-y-4">
+              {publications.map((pub, index) => {
+                const TypeIcon = getTypeIcon(pub.type);
+                return (
+                  <motion.div key={pub.title} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }} whileHover={{ x: 5 }} onClick={() => handlePublicationClick(pub.url)} className="group bg-card rounded-xl p-5 border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300 cursor-pointer">
+                    <div className="flex items-start gap-4"><div className="flex-shrink-0 p-2 rounded-lg bg-accent/10"><TypeIcon className="w-5 h-5 text-accent" /></div><div className="flex-1 min-w-0"><div className="flex items-center gap-2 mb-2"><span className="text-xs font-medium text-muted-foreground">{pub.type}</span><span className="text-xs text-muted-foreground">•</span><span className="text-xs text-muted-foreground">{pub.year}</span></div><h4 className="text-base font-medium text-foreground group-hover:text-accent transition-colors line-clamp-2">{pub.title}</h4><p className="text-sm text-muted-foreground mt-1">{pub.journal}</p></div><ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" /></div>
                   </motion.div>
                 );
               })}
@@ -170,12 +183,12 @@ export function ResearchSection() {
                     <p className="text-xs text-muted-foreground">Publications</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground">3+</p>
-                    <p className="text-xs text-muted-foreground">Projects</p>
+                    <p className="text-2xl font-bold text-foreground">1</p>
+                    <p className="text-xs text-muted-foreground">Research Project</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground">3+</p>
-                    <p className="text-xs text-muted-foreground">Years Research</p>
+                    <p className="text-lg font-bold text-foreground">Since 2023</p>
+                    <p className="text-xs text-muted-foreground">Research</p>
                   </div>
                 </div>
               </motion.div>

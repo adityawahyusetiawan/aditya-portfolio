@@ -2,6 +2,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { EducationSection } from "@/components/sections/EducationSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ResearchSection } from "@/components/sections/ResearchSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
@@ -17,9 +18,10 @@ const Index = () => {
         <main>
           <HeroSection />
           <AboutSection />
+          <EducationSection />
+          <ExperienceSection />
           <ProjectsSection />
           <ResearchSection />
-          <ExperienceSection />
           <AchievementsSection />
           <ContactSection />
         </main>

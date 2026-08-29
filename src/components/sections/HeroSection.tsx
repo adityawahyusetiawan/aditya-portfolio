@@ -112,7 +112,7 @@ export function HeroSection() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="text-lg md:text-xl text-muted-foreground mb-4"
             >
-              Electrical Engineering Undergraduate
+              Electrical Engineer
             </motion.p>
 
             <motion.p
@@ -121,9 +121,10 @@ export function HeroSection() {
               transition={{ delay: 0.5, duration: 0.6 }}
               className="text-base text-muted-foreground/80 mb-8 max-w-lg mx-auto lg:mx-0"
             >
-              Specializing in <span className="text-accent font-medium">Power Systems</span> &{" "}
-              <span className="text-accent font-medium">Renewable Energy</span>. Passionate about
-              sustainable engineering solutions and cutting-edge automation technologies.
+              <span className="text-accent font-medium">Power Systems</span> |{" "}
+              <span className="text-accent font-medium">Renewable Energy</span> |{" "}
+              <span className="text-accent font-medium">Industrial Automation</span><br />
+              Electrical Engineering graduate with hands-on experience in power systems, solar PV, industrial automation, and applied engineering projects. Focused on developing practical, reliable, and sustainable electrical engineering solutions.
             </motion.p>
 
             <motion.div

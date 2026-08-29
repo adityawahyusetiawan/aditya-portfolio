@@ -32,16 +32,19 @@ function AnimatedCounter({ target, duration = 2 }: { target: number; duration?: 
 const focusAreas = [
   { icon: Zap, label: "Power Systems" },
   { icon: Lightbulb, label: "Renewable Energy" },
-  { icon: Target, label: "Automation" },
+  { icon: Target, label: "Industrial Automation" },
   { icon: GraduationCap, label: "Applied Engineering" },
 ];
 
 const softwareExpertise = [
-  { label: "ETAP / PowerWorld" },
-  { label: "AutoCAD Electrical" },
-  { label: "MATLAB / Simulink" },
-  { label: "Autodesk Inventor / SolidWorks" },
+  { label: "ETAP" },
+  { label: "PVsyst" },
+  { label: "Proteus" },
+  { label: "Autodesk Inventor" },
+  { label: "SketchUp" },
 ];
+
+const embeddedHardware = ["ESP32", "Microcontrollers", "PLC"];
 
 export function AboutSection() {
   const sectionRef = useRef(null);
@@ -98,7 +101,7 @@ export function AboutSection() {
                 <GraduationCap className="w-6 h-6 text-accent" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Current GPA</p>
+                <p className="text-sm text-muted-foreground">Final GPA</p>
                 <p className="text-2xl font-bold text-foreground">
                   <AnimatedCounter target={3.82} /> <span className="text-muted-foreground text-base font-normal">/ 4.00</span>
                 </p>
@@ -107,16 +110,14 @@ export function AboutSection() {
 
             <div className="space-y-4">
               <p className="text-lg text-foreground">
-                I'm an <span className="font-semibold text-accent">Electrical Engineering</span> undergraduate at{" "}
-                <span className="font-semibold">State University of Malang</span>, driven by a passion for sustainable energy solutions and innovative engineering.
+                <span className="font-semibold text-accent">Electrical Engineering graduate</span> from{" "}
+                <span className="font-semibold">State University of Malang</span> with a background in power systems, renewable energy, industrial automation, and electrical system development.
               </p>
-              
               <p className="text-muted-foreground">
-                My academic journey combines rigorous theoretical knowledge with hands-on practical experience. I focus on designing and implementing real-world solutions in power systems, renewable energy installations, and industrial automation.
+                Experienced in the design, implementation, and troubleshooting of electrical, control, and electronic systems through academic, research, and industrial projects.
               </p>
-
               <p className="text-muted-foreground">
-                With a research-oriented mindset and industry-focused approach, I bridge the gap between academic innovation and practical engineering applications.
+                My experience combines engineering analysis with hands-on implementation, including renewable energy systems, industrial automation, power system applications, and applied engineering research.
               </p>
             </div>
 
@@ -145,7 +146,7 @@ export function AboutSection() {
               </div>
             </motion.div>
 
-            {/* Software Expertise */}
+            {/* Engineering Software */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -154,7 +155,7 @@ export function AboutSection() {
             >
               <p className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
                 <Wrench className="w-4 h-4" />
-                Software Expertise
+                Engineering Software
               </p>
               <div className="flex flex-wrap gap-3">
                 {softwareExpertise.map((software, index) => (
@@ -168,6 +169,25 @@ export function AboutSection() {
                   >
                     <span className="text-sm font-medium text-foreground">{software.label}</span>
                   </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="pt-2"
+            >
+              <p className="text-sm font-medium text-muted-foreground mb-3 flex items-center gap-2">
+                <Wrench className="w-4 h-4" />
+                Embedded & Hardware
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {embeddedHardware.map((technology) => (
+                  <div key={technology} className="px-4 py-2 bg-card rounded-lg border border-border shadow-sm">
+                    <span className="text-sm font-medium text-foreground">{technology}</span>
+                  </div>
                 ))}
               </div>
             </motion.div>

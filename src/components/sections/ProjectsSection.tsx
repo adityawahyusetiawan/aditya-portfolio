@@ -7,54 +7,34 @@ import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 const projects = [
   {
-    id: 1,
-    title: "Hybrid Solar PV Installation",
-    subtitle: "Commercial & Residential",
-    year: "2025",
-    description:
-      "Designed and installed hybrid solar PV systems for both commercial buildings and residential properties. Implemented grid-tied inverters with battery backup for uninterrupted power supply.",
-    technologies: ["Solar PV", "Hybrid Inverter", "Battery Storage", "Grid-Tie"],
-    images: ["Main installation photo", "System diagram", "Monitoring dashboard"],
+    id: 1, title: "Hybrid Solar PV Installation", subtitle: "Commercial & Residential", year: "2025",
+    description: "Contributed to the planning and installation support for hybrid solar PV systems in commercial and residential applications.",
+    technologies: ["Solar PV", "Hybrid Inverter", "Battery Storage", "Grid-Tie"], images: ["Main installation photo", "System diagram", "Monitoring dashboard"],
   },
   {
-    id: 2,
-    title: "Industrial Solar PV Feasibility Study",
-    subtitle: "Large-Scale Analysis",
-    year: "2025",
-    description:
-      "Conducted comprehensive feasibility analysis for industrial-scale solar PV deployment. Included site assessment, shading analysis, energy yield calculations, and ROI projections.",
-    technologies: ["PVSyst", "Financial Modeling", "Site Analysis", "Technical Report"],
-    images: ["Site survey documentation", "Simulation results"],
+    id: 2, title: "Industrial Solar PV Feasibility Study", subtitle: "Large-Scale Analysis", year: "2025",
+    description: "Supported site assessment, shading analysis, energy-yield simulation, and technical reporting for industrial-scale solar PV deployment.",
+    technologies: ["PVsyst", "Solar PV", "Site Analysis", "Technical Report"], images: ["Site survey documentation", "Simulation results"],
   },
   {
-    id: 4,
-    title: "Solar-Powered Grass Chopper",
-    subtitle: "Agricultural Machinery",
-    year: "2024",
-    description:
-      "Designed and built a portable solar-powered grass chopper machine for farming applications. Optimized motor efficiency and blade design for maximum throughput.",
-    technologies: ["DC Motors", "Solar Power", "Mechanical Design", "Agriculture"],
-    images: ["Complete machine photo", "Solar panel integration"],
+    id: 3, title: "Solar-Powered Grass Chopper", subtitle: "Agricultural Machinery", year: "2024",
+    description: "Contributed to the development and implementation of a solar-powered grass chopper for agricultural applications.",
+    technologies: ["DC Motors", "Solar Power", "Mechanical Design", "Agriculture"], images: ["Complete machine photo", "Solar panel integration"],
   },
   {
-    id: 5,
-    title: "PLC Trainer & Automation Systems",
-    subtitle: "Educational Equipment",
-    year: "2021",
-    description:
-      "Developed comprehensive PLC training equipment for educational purposes. Includes simulation of various industrial control scenarios using Omron PLCs programmed with CX-Programmer, covering ladder logic design, I/O mapping, and basic automation workflows.",
-    technologies: ["Siemens PLC", "Allen Bradley", "HMI", "Ladder Logic"],
-    images: ["Trainer module", "HMI interface", "Wiring documentation"],
+    id: 4, title: "PLC Trainer & Automation Systems", subtitle: "Educational Equipment", year: "2021",
+    description: "Developed educational PLC training equipment using Omron PLCs and CX-Programmer for ladder logic, I/O mapping, and basic automation workflows.",
+    technologies: ["Omron PLC", "CX-Programmer", "Ladder Logic", "I/O Mapping"], images: ["Trainer module", "HMI interface", "Wiring documentation"],
   },
   {
-    id: 6,
-    title: "Digital Distance Protection Relay Trainer Using ESP32",
-    subtitle: "Protection System",
-    year: "2025",
-    description:
-      "Created an innovative microcontroller-based distance relay prototype for power system protection. Features advanced fault detection algorithms and communication capabilities.",
-    technologies: ["ESP32", "Protection Relay", "Communication Protocol", "Algorithm Design"],
-    images: ["Prototype photo", "Circuit schematic", "Testing results"],
+    id: 5, title: "Digital Distance Protection Relay Trainer Using ESP32", subtitle: "Protection System", year: "2025",
+    description: "Contributed to an ESP32-based distance protection relay trainer prototype for power-system protection learning and testing.",
+    technologies: ["ESP32", "Protection Relay", "Microcontrollers", "Power Systems"], images: ["Prototype photo", "Circuit schematic", "Testing results"],
+  },
+  {
+    id: 6, title: "Electro-Thermal Analysis of a PV-Fed Inverter Drive System", subtitle: "Bachelor’s Thesis", year: "2025",
+    description: "Analyzed the electro-thermal behavior of a PV-fed inverter drive system, combining solar PV, inverter, and power-electronics modeling workflows.",
+    technologies: ["Power Electronics", "Solar PV", "Inverter", "Electro-Thermal Analysis", "PLECS", "Python"], images: ["Simulation results", "Circuit schematic"],
   },
 ];
 

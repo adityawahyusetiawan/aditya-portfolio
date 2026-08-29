@@ -4,16 +4,17 @@ import { Linkedin, Mail, Instagram, MessageCircle } from "lucide-react";
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Research", href: "#research" },
-  { label: "Experience", href: "#experience" },
   { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ];
 
 const socialLinks = [
   { icon: Linkedin, href: "https://www.linkedin.com/in/aditya-wahyu-setiawan-1492a32aa/", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:adityawahyusetiawan.id@email.com", label: "Email" },
+  { icon: Mail, href: "mailto:adityawahyusetiawan.id@gmail.com", label: "Email" },
   { icon: Instagram, href: "https://www.instagram.com/aditya.wahyu.id/", label: "Instagram" },
   { icon: MessageCircle, href: "https://wa.me/62859106722095", label: "WhatsApp" },
 ];
@@ -49,7 +50,7 @@ export function Footer() {
               Aditya Wahyu S
             </a>
             <p className="text-xs text-muted-foreground mt-1">
-              Electrical Engineering Undergraduate
+              Electrical Engineer | Power Systems & Renewable Energy
             </p>
           </motion.div>
 

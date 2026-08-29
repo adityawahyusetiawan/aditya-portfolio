@@ -5,7 +5,7 @@ import { Mail, Linkedin, MapPin, Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactInfo = {
-  email: "adityawahyusetiawan.id@email.com",
+  email: "adityawahyusetiawan.id@gmail.com",
   linkedin: "www.linkedin.com/in/aditya-wahyu-setiawan-1492a32aa/",
   location: "Malang, East Java, Indonesia",
 };

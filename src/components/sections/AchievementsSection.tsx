@@ -8,7 +8,7 @@ import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 const achievements = [
   {
     id: 1,
-    title: "Industrial Design patent: Generator Edukit",
+    title: "Industrial Design — Generator Edukit",
     year: "2025",
     description:
       "Registered industrial design for modular educational electrical generator training equipment.",
@@ -85,10 +85,10 @@ const achievements = [
   },
   {
     id: 8,
-    title: "National Champion: Abisatya Business Idea Development Competition 2024",
+    title: "2nd Place — Abisatya Business Idea Development Competition 2024",
     year: "2024",
     description:
-      "Awarded as national champion in business idea competition organized by BEM-U Universitas Bhinneka PGRI with theme 'Youth Standing Out With Innovative Business Entrepreneurial'.",
+      "Recognized for an innovative business idea in the Abisatya Business Idea Development Competition.",
     icon: Trophy, // Menggunakan Trophy untuk juara
     color: "text-amber-500", // Warna emas untuk juara
     bgColor: "bg-amber-500/10",
