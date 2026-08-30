@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
-import { Download, Mail, Eye } from "lucide-react";
+import { Download, Mail, Eye, Sun, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 export function HeroSection() {
+  const navigate = useNavigate();
+
   const scrollToProjects = () => {
     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -131,24 +134,41 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex flex-wrap gap-4 justify-center lg:justify-start pb-8 sm:pb-0"
+              className="flex flex-col gap-4 justify-center lg:justify-start pb-8 sm:pb-0"
             >
-              <Button
-                size="lg"
-                onClick={scrollToProjects}
-                className="group bg-accent hover:bg-accent/90 text-accent-foreground"
-              >
-                <Eye className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                View Projects
-              </Button>
-              <Button size="lg" variant="outline" onClick={handleDownloadCV}>
-                <Download className="mr-2 h-4 w-4" />
-                Download CV
-              </Button>
-              <Button size="lg" variant="outline" onClick={scrollToContact} className="group">
-                <Mail className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
-                Contact Me
-              </Button>
+              {/* Row 1: Primary actions */}
+              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                <Button
+                  size="lg"
+                  onClick={scrollToProjects}
+                  className="group bg-accent hover:bg-accent/90 text-accent-foreground"
+                >
+                  <Eye className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                  View Projects
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => navigate("/pv-details")}
+                  className="group border-accent/50 text-accent hover:bg-accent/10 hover:text-accent hover:border-accent"
+                >
+                  <Sun className="mr-2 h-4 w-4 transition-transform" />
+                  Explore PV System 
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </div>
+
+              {/* Row 2: Secondary actions */}
+              <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+                <Button size="lg" variant="outline" onClick={handleDownloadCV}>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download CV
+                </Button>
+                <Button size="lg" variant="outline" onClick={scrollToContact} className="group">
+                  <Mail className="mr-2 h-4 w-4 group-hover:scale-110 transition-transform" />
+                  Contact Me
+                </Button>
+              </div>
             </motion.div>
           </motion.div>
 

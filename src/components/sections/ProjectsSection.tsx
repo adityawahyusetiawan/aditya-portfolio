@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronDown, ChevronUp, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
   {
@@ -62,6 +63,7 @@ function ProjectCard({
   setBaseRef: (projectId: number) => (el: HTMLDivElement | null) => void;
 }) {
   const isExpanded = expandedProjectId === project.id;
+  const navigate = useNavigate();
 
   return (
     <div className="bg-card rounded-xl overflow-hidden border border-border shadow-lg hover:shadow-xl hover:border-accent/30 transition-all duration-300 w-[300px] sm:w-[340px] flex-shrink-0 flex flex-col">
@@ -106,6 +108,28 @@ function ProjectCard({
               ))}
             </div>
           </div>
+
+          {/* Project action buttons */}
+          {project.id === 1 && (
+            <div className="mt-4 pt-4 border-t border-border flex flex-wrap gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-muted-foreground hover:text-foreground text-xs"
+                onClick={() => onImageClick(project.id, 0)}
+              >
+                View Project
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="text-xs border-accent/40 text-accent hover:bg-accent/10 hover:text-accent hover:border-accent/60"
+                onClick={() => navigate("/pv-details")}
+              >
+                Explore PV System →
+              </Button>
+            </div>
+          )}
 
           {/* Expandable Gallery Trigger */}
           <div className="mt-auto pt-4">

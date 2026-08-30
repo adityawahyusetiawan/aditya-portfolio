@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -21,19 +22,23 @@ export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const { theme, setTheme } = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      const sections = navItems.map((item) => item.href.slice(1));
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
-            setActiveSection(section);
-            break;
+      if (location.pathname === "/") {
+        const sections = navItems.map((item) => item.href.slice(1));
+        for (const section of sections.reverse()) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            if (rect.top <= 100) {
+              setActiveSection(section);
+              break;
+            }
           }
         }
       }
@@ -41,14 +46,32 @@ export function Navigation() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [location.pathname]);
 
-  const scrollToSection = (href: string) => {
-    const element = document.getElementById(href.slice(1));
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash) {
+      const id = location.hash.slice(1);
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
     }
+  }, [location]);
+
+  const handleNavClick = (href: string) => {
     setIsOpen(false);
+    if (location.pathname !== "/") {
+      navigate(`/${href}`);
+    } else {
+      const element = document.getElementById(href.slice(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.hash = href;
+      }
+    }
   };
 
   return (
@@ -65,10 +88,10 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.a
-            href="#home"
+            href="/"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection("#home");
+              handleNavClick("#home");
             }}
             className="flex items-center"
             whileHover={{ scale: 1.05 }}
@@ -86,10 +109,10 @@ export function Navigation() {
             {navItems.map((item) => (
               <motion.button
                 key={item.href}
-                onClick={() => scrollToSection(item.href)}
+                onClick={() => handleNavClick(item.href)}
                 className={cn(
                   "px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200",
-                  activeSection === item.href.slice(1)
+                  activeSection === item.href.slice(1) && location.pathname === "/"
                     ? "text-accent bg-accent/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
                 )}
@@ -163,10 +186,10 @@ export function Navigation() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavClick(item.href)}
                   className={cn(
                     "block w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-200",
-                    activeSection === item.href.slice(1)
+                    activeSection === item.href.slice(1) && location.pathname === "/"
                       ? "text-accent bg-accent/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-muted"
                   )}

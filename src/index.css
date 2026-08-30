@@ -207,4 +207,11 @@
   .scrollbar-themed::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--accent) / 0.7);
   }
+
+  /* Ensure animation section headings clear the fixed navbar on scroll-into-view */
+  #pv-animation,
+  #inverter-animation,
+  #motor-animation {
+    scroll-margin-top: 80px;
+  }
 }
