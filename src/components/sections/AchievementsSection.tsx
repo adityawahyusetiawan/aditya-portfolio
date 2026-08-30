@@ -7,17 +7,6 @@ import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
 const achievements = [
   {
-    id: 1,
-    title: "Industrial Design — Generator Edukit",
-    year: "2025",
-    description:
-      "Registered industrial design for modular educational electrical generator training equipment.",
-    icon: Trophy,
-    color: "text-yellow-500",
-    bgColor: "bg-yellow-500/10",
-    imageLabel: "generator-edukit-patent", // Nama file: generator-edukit-patent.png
-  },
-  {
     id: 2,
     title: "National Seminar Speaker: Community Service SEPMAS",
     year: "2024",
@@ -49,17 +38,6 @@ const achievements = [
     color: "text-gray-400",
     bgColor: "bg-gray-500/10",
     imageLabel: "best-it-award", // Nama file: best-it-award.png
-  },
-  {
-    id: 5,
-    title: "Copyright: ESP32 Distance Relay Training System Manual Book",
-    year: "2025",
-    description:
-      "Copyrighted technical manual supporting power system protection training and laboratory instruction.",
-    icon: FileText, // Changed from Sparkles
-    color: "text-green-500",
-    bgColor: "bg-green-500/10",
-    imageLabel: "esp32-manual-copyright", // Nama file: esp32-manual-copyright.png
   },
   {
     id: 6,

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { BookOpen, FileText, Award, ExternalLink } from "lucide-react";
+import { BookOpen, FileText, Award, ExternalLink, BadgeCheck, Copyright } from "lucide-react";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
+import { SingleItemCarousel } from "@/components/research/SingleItemCarousel";
 
 const researchProjects = [
   {
@@ -12,6 +13,20 @@ const researchProjects = [
     year: "2023",
     url: "https://www.kompasiana.com/adityawahyusetiawan1135/6964a70334777c377a0bfdf2/inovasi-berbasis-internet-of-things-karya-mahasiswa-um-harumkan-nama-bangsa-di-tingkat-internasional?page=1&page_images=1",
   },
+  {
+    type: "Research Project",
+    title: "Digital Distance Protection Relay Trainer Using ESP32",
+    journal: "Universitas Negeri Malang",
+    year: "2025",
+    url: "https://drive.google.com/file/d/1KdBBDNYgm85YdDwG0hPR1bgvDPG0yXWg/view?usp=sharing",
+  },
+  {
+    type: "Research Project",
+    title: "Generator Edukit",
+    journal: "Universitas Negeri Malang",
+    year: "2025",
+    url: "https://drive.google.com/file/d/1D1GbUXM0omtyTSt9kDPpjhIBYswtRtU3/view?usp=sharing",
+  }
 ];
 
 const publications = [
@@ -28,6 +43,23 @@ const publications = [
     journal: "Jurnal Teknik elektro UNIBA",
     year: "2024",
     url: "https://jurnal.fte.uniba-bpn.ac.id/index.php/JTE/article/view/296" // Ganti dengan URL yang sesuai
+  }
+];
+
+const intellectualProperty = [
+  {
+    type: "Industrial Design",
+    title: "Industrial Design \u2014 Generator Edukit",
+    journal: "Universitas Negeri Malang",
+    year: "2025",
+    url: "https://drive.google.com/file/d/1D1GbUXM0omtyTSt9kDPpjhIBYswtRtU3/view?usp=sharing"
+  },
+  {
+    type: "Copyright",
+    title: "Copyright \u2014 DRAGONE ESP 32 Distance Relay Training System",
+    journal: "Technical Manual / Guide Book",
+    year: "2025",
+    url: "https://drive.google.com/file/d/1KdBBDNYgm85YdDwG0hPR1bgvDPG0yXWg/view?usp=sharing"
   }
 ];
 
@@ -50,6 +82,10 @@ export function ResearchSection() {
         return BookOpen;
       case "Conference":
         return Award;
+      case "Industrial Design":
+        return BadgeCheck;
+      case "Copyright":
+        return Copyright;
       default:
         return FileText;
     }
@@ -57,6 +93,47 @@ export function ResearchSection() {
 
   const handlePublicationClick = (url: string) => {
     window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const renderTextCard = (item: any) => {
+    const TypeIcon = getTypeIcon(item.type);
+    return (
+      <div
+        onClick={() => item.url && handlePublicationClick(item.url)}
+        className={`group bg-card rounded-xl p-5 border border-border transition-all duration-300 ${item.url ? 'hover:border-accent/30 hover:shadow-lg cursor-pointer' : ''}`}
+      >
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 p-2 rounded-lg bg-accent/10">
+            <TypeIcon className="w-5 h-5 text-accent" />
+          </div>
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-medium text-muted-foreground">{item.type}</span>
+                <span className="text-xs text-muted-foreground">•</span>
+                <span className="text-xs text-muted-foreground">{item.year}</span>
+              </div>
+              {item.url && (
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  aria-label={`Open document for ${item.title}`}
+                  className="p-1.5 rounded-md hover:bg-accent/10 transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4 text-muted-foreground hover:text-accent opacity-100" />
+                </a>
+              )}
+            </div>
+            <h4 className="text-base font-medium text-foreground group-hover:text-accent transition-colors line-clamp-2">
+              {item.title}
+            </h4>
+            <p className="text-sm text-muted-foreground mt-1">{item.journal}</p>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -69,7 +146,7 @@ export function ResearchSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Research Projects & Publications
+            Research, Publications & Intellectual Property
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Applied research spanning power systems, renewable energy, industrial automation, and IoT-based monitoring.
@@ -83,55 +160,13 @@ export function ResearchSection() {
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-3"
           >
-            <h3 className="text-xl font-semibold text-foreground">Research Projects</h3>
-            <div className="space-y-4">
-              {researchProjects.map((pub, index) => {
-                const TypeIcon = getTypeIcon(pub.type);
-                return (
-                  <motion.div
-                    key={pub.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                    whileHover={{ x: 5 }}
-                    onClick={() => handlePublicationClick(pub.url)}
-                    className="group bg-card rounded-xl p-5 border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300 cursor-pointer"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 p-2 rounded-lg bg-accent/10">
-                        <TypeIcon className="w-5 h-5 text-accent" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-2">
-                          <span className="text-xs font-medium text-muted-foreground">{pub.type}</span>
-                          <span className="text-xs text-muted-foreground">•</span>
-                          <span className="text-xs text-muted-foreground">{pub.year}</span>
-                        </div>
-                        <h4 className="text-base font-medium text-foreground group-hover:text-accent transition-colors line-clamp-2">
-                          {pub.title}
-                        </h4>
-                        <p className="text-sm text-muted-foreground mt-1">{pub.journal}</p>
-                      </div>
-                      <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+            <SingleItemCarousel title="Research Projects" items={researchProjects} renderItem={renderTextCard} ariaLabel="research project" />
 
-            <h3 className="text-xl font-semibold text-foreground pt-2">Publications</h3>
-            <div className="space-y-4">
-              {publications.map((pub, index) => {
-                const TypeIcon = getTypeIcon(pub.type);
-                return (
-                  <motion.div key={pub.title} initial={{ opacity: 0, y: 20 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }} whileHover={{ x: 5 }} onClick={() => handlePublicationClick(pub.url)} className="group bg-card rounded-xl p-5 border border-border hover:border-accent/30 hover:shadow-lg transition-all duration-300 cursor-pointer">
-                    <div className="flex items-start gap-4"><div className="flex-shrink-0 p-2 rounded-lg bg-accent/10"><TypeIcon className="w-5 h-5 text-accent" /></div><div className="flex-1 min-w-0"><div className="flex items-center gap-2 mb-2"><span className="text-xs font-medium text-muted-foreground">{pub.type}</span><span className="text-xs text-muted-foreground">•</span><span className="text-xs text-muted-foreground">{pub.year}</span></div><h4 className="text-base font-medium text-foreground group-hover:text-accent transition-colors line-clamp-2">{pub.title}</h4><p className="text-sm text-muted-foreground mt-1">{pub.journal}</p></div><ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" /></div>
-                  </motion.div>
-                );
-              })}
-            </div>
+            <SingleItemCarousel title="Publications" items={publications} renderItem={renderTextCard} ariaLabel="publication" />
+
+            <SingleItemCarousel title="Intellectual Property" items={intellectualProperty} renderItem={renderTextCard} ariaLabel="intellectual property" />
 
             {/* Research Areas */}
             <motion.div
@@ -183,7 +218,7 @@ export function ResearchSection() {
                     <p className="text-xs text-muted-foreground">Publications</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground">1</p>
+                    <p className="text-2xl font-bold text-foreground">3</p>
                     <p className="text-xs text-muted-foreground">Research Project</p>
                   </div>
                   <div>
@@ -199,3 +234,4 @@ export function ResearchSection() {
     </section>
   );
 }
+
