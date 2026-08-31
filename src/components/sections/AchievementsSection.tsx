@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Trophy, Medal, Award, Star, Sparkles, ChevronLeft, ChevronRight, X, FileText, Users, HeartHandshake } from "lucide-react";
+import { Trophy, Medal, Award, Star, Sparkles, ChevronLeft, ChevronRight, X, FileText, Users, HeartHandshake, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 
@@ -49,6 +49,7 @@ const achievements = [
     color: "text-red-500",
     bgColor: "bg-red-500/10",
     imageLabel: "solar-grass-chopper", // Nama file: solar-grass-chopper.png
+    articleUrl: "https://www.kompasiana.com/honey93098/6686184dc925c437ee206722/solusi-modern-untuk-peternak-sapi-di-desa-kedungrejo-implementasi-mesin-pencacah-rumput-otomatis-dengan-panel-surya",
   },
   {
     id: 7,
@@ -60,6 +61,7 @@ const achievements = [
     color: "text-indigo-500",
     bgColor: "bg-indigo-500/10",
     imageLabel: "iot-bottle-sterilization", // Nama file: iot-bottle-sterilization.png
+    articleUrl: "https://www.kompasiana.com/honey93098/66a1bb96c925c440f7146212/inovasi-canggih-digitalisasi-produksi-berbasis-iot-untuk-sterilisasi-botol-kemasan-umkm-di-cv-sejahtera-sentosa",
   },
   {
     id: 8,
@@ -143,21 +145,21 @@ export function AchievementsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-2"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-2">
             Achievements & Awards
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Recognition for academic excellence and innovative engineering contributions
           </p>
-          <div className="w-20 h-1 bg-accent mx-auto rounded-full mt-4" />
+          <div className="w-20 h-1 bg-accent mx-auto rounded-full mt-2" />
         </motion.div>
 
         {/* Achievement Cards Carousel */}
         <div className="relative">
           {/* Navigation Buttons */}
-          <div className="flex justify-end gap-2 mb-6">
+          <div className="flex justify-end gap-2 mb-2">
             <Button
               variant="outline"
               size="icon"
@@ -208,7 +210,7 @@ export function AchievementsSection() {
                     </div>
 
                     {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-card via-card to-transparent p-4">
+                    <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-card via-card to-transparent p-4 flex flex-col justify-start">
                       <div className="flex items-center gap-2 mb-2">
                         <motion.div
                           whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
@@ -221,6 +223,17 @@ export function AchievementsSection() {
                           {achievement.title}
                         </h3>
                       </div>
+                      {achievement.articleUrl && (
+                        <a
+                          href={achievement.articleUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-accent/30 text-accent hover:bg-accent/10 transition-colors"
+                        >
+                          Read Article <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      )}
                     </div>
 
                     {/* Glow effect on hover */}
@@ -262,7 +275,7 @@ export function AchievementsSection() {
                   </div>
 
                   {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-card via-card to-transparent p-4">
+                  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-card via-card to-transparent p-4 flex flex-col justify-start">
                     <div className="flex items-center gap-2 mb-2">
                       <motion.div
                         className={`p-2 rounded-lg ${achievements[currentIndex].bgColor}`}
@@ -276,6 +289,17 @@ export function AchievementsSection() {
                         {achievements[currentIndex].title}
                       </h3>
                     </div>
+                    {achievements[currentIndex].articleUrl && (
+                      <a
+                        href={achievements[currentIndex].articleUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-accent/30 text-accent hover:bg-accent/10 transition-colors"
+                      >
+                        Read Article <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                     <p className="text-xs text-muted-foreground line-clamp-2">
                       {achievements[currentIndex].description}
                     </p>

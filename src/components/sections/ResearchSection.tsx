@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { BookOpen, FileText, Award, ExternalLink, BadgeCheck, Copyright } from "lucide-react";
+import { BookOpen, FileText, Award, ExternalLink, BadgeCheck, Copyright, ScrollText } from "lucide-react";
 import { ImagePlaceholder } from "@/components/ImagePlaceholder";
 import { SingleItemCarousel } from "@/components/research/SingleItemCarousel";
 
@@ -12,6 +12,7 @@ const researchProjects = [
     journal: "ARAU International Creativity Expo (ACE)",
     year: "2023",
     url: "https://www.kompasiana.com/adityawahyusetiawan1135/6964a70334777c377a0bfdf2/inovasi-berbasis-internet-of-things-karya-mahasiswa-um-harumkan-nama-bangsa-di-tingkat-internasional?page=1&page_images=1",
+    appUrl: "https://www.figma.com/proto/oPbXaJVlSpkQ0U7jW7M94a/LKTIN-UB-Malay?node-id=5-28&starting-point-node-id=1%3A2",
   },
   {
     type: "Research Project",
@@ -60,6 +61,28 @@ const intellectualProperty = [
     journal: "Technical Manual / Guide Book",
     year: "2025",
     url: "https://drive.google.com/file/d/1KdBBDNYgm85YdDwG0hPR1bgvDPG0yXWg/view?usp=sharing"
+  },
+  {
+    type: "Patent",
+    title: "Patent \u2014 Perangkat Edukatif Inverter Cerdas Berbasis MPPT untuk Pembangkit Listrik Tenaga Surya (PV)",
+    journal: "Universitas Negeri Malang",
+    year: "2025",
+    url: "https://drive.google.com/file/d/1X5pYh6DfH_TN1wZdT0JrUbLLkYu7Zf-T/view?usp=sharing"
+  },
+  {
+    type: "Copyright",
+    title: "Copyright \u2014 Website Komersial Startup PicoHydro",
+    journal: "Program Komputer \u2014 Universitas Negeri Malang",
+    year: "2025",
+    url: "https://drive.google.com/file/d/1r7eNC0neHdTW2EsZYfltxLLi6yBF7PL4/view?usp=sharing",
+    websiteUrl: "https://greenovate-energy.vercel.app/"
+  },
+  {
+    type: "Copyright",
+    title: "Copyright \u2014 Fingerprint Flora",
+    journal: "Program Komputer \u2014 Universitas Negeri Malang",
+    year: "2024",
+    url: "https://drive.google.com/file/d/16zLd2lCgW4UijC0LDG73kqmRoQrMcaTp/view?usp=sharing"
   }
 ];
 
@@ -86,6 +109,8 @@ export function ResearchSection() {
         return BadgeCheck;
       case "Copyright":
         return Copyright;
+      case "Patent":
+        return ScrollText;
       default:
         return FileText;
     }
@@ -130,6 +155,32 @@ export function ResearchSection() {
               {item.title}
             </h4>
             <p className="text-sm text-muted-foreground mt-1">{item.journal}</p>
+            {item.appUrl && (
+              <a
+                href={item.appUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`Open ${item.title} application prototype`}
+                className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-accent/30 text-accent hover:bg-accent/10 transition-colors"
+              >
+                See App
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {item.websiteUrl && (
+              <a
+                href={item.websiteUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`Visit website for ${item.title}`}
+                className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md border border-accent/30 text-accent hover:bg-accent/10 transition-colors"
+              >
+                Visit Website
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+            )}
           </div>
         </div>
       </div>
