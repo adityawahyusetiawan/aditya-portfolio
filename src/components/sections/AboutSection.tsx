@@ -103,7 +103,7 @@ export function AboutSection() {
               <div>
                 <p className="text-sm text-muted-foreground">Final GPA</p>
                 <p className="text-2xl font-bold text-foreground">
-                  <AnimatedCounter target={3.82} /> <span className="text-muted-foreground text-base font-normal">/ 4.00</span>
+                  <AnimatedCounter target={3.84} /> <span className="text-muted-foreground text-base font-normal">/ 4.00</span>
                 </p>
               </div>
             </motion.div>

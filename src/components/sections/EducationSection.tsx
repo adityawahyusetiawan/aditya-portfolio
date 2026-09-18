@@ -25,7 +25,7 @@ export function EducationSection() {
             <div className="flex-1">
               <p className="text-sm font-medium text-accent mb-1">State University of Malang</p>
               <h3 className="text-xl md:text-2xl font-bold text-foreground">Bachelor’s Degree in Electrical Engineering</h3>
-              <p className="text-muted-foreground mt-2">Final GPA: <span className="font-semibold text-foreground">3.82 / 4.00</span></p>
+              <p className="text-muted-foreground mt-2">Final GPA: <span className="font-semibold text-foreground">3.84 / 4.00</span></p>
               <div className="mt-6 pt-5 border-t border-border">
                 <h4 className="text-sm font-medium text-muted-foreground mb-3">Academic Highlights</h4>
                 <ul className="space-y-2">{highlights.map((highlight) => <li key={highlight} className="flex items-start gap-2 text-sm text-muted-foreground"><Award className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" /><span>{highlight}</span></li>)}</ul>
