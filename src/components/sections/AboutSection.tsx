@@ -40,6 +40,7 @@ const softwareExpertise = [
   { label: "ETAP" },
   { label: "PVsyst" },
   { label: "Proteus" },
+  { label: "PLECS" },
   { label: "Autodesk Inventor" },
   { label: "SketchUp" },
 ];
